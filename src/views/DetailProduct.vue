@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <h1>Iphone</h1>
+    <p>$194</p>
+  </div>
+  <div>
+    <h1>Iphone</h1>
+    <p>$194</p>
+  </div>
+</template>

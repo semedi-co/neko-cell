@@ -1,0 +1,135 @@
+nav .nav-link:hover,
+nav .nav-link.router-link-active,
+nav .nav-link.router-link-exact-active {
+  color: white !important;
+  font-weight: 600;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.bg-loading {
+  position: fixed;
+  height: 100%;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.673);
+  z-index: 1299;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/************************
+  COLLAPSIBLE
+ ************************/
+ .collapsible-enter-active,
+ .collapsible-leave-active {
+   /* transition: all 0.5s linear; */
+   transition: max-height 0.5s;
+   max-height: 800px;
+   overflow: hidden;
+ }
+ .collapsible-enter,
+ .collapsible-leave-to {
+   max-height: 0;
+   opacity: 0.5;
+ }
+ 
+ /************************
+   FADE
+  ************************/
+ .fade-enter-active,
+ .fade-leave-active,
+ .page-enter-active,
+ .page-leave-active,
+ .layout-enter-active,
+ .layout-leave-active {
+   transition: opacity 0.3s ease;
+ }
+ .fade-enter,
+ .fade-leave-active,
+ .page-enter,
+ .page-leave-active,
+ .layout-enter,
+ .layout-leave-active {
+   opacity: 0;
+ }
+ 
+ /************************
+   SLIDE-FADE
+  ************************/
+ .slide-fade-enter-active,
+ .slide-fade-leave-active {
+   transition: all 0.3s ease;
+ }
+ .slide-fade-enter,
+ .slide-fade-leave-to {
+   transform: translateY(-25px);
+   opacity: 0;
+ }
+ 
+ /************************
+   SLIDE-LEFT
+   SLIDE-RIGHT
+  ************************/
+ .slide-left-enter-active,
+ .slide-left-leave-active,
+ .slide-right-enter-active,
+ .slide-right-leave-active {
+   overflow: hidden !important;
+   transition-duration: 0.5s;
+   transition-property: height, opacity, transform;
+   transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+ }
+ .slide-left-enter {
+   opacity: 0;
+   transform: translate(25%, 0);
+ }
+ .slide-left-leave-active {
+   opacity: 0;
+   transform: translate(-25%, 0);
+ }
+ 
+ .slide-right-enter {
+   opacity: 0;
+   transform: translate(-25%, 0);
+ }
+ .slide-right-leave-active {
+   opacity: 0;
+   transform: translate(25%, 0);
+ }
+ 
+ /************************
+   BOUNCE
+  ************************/
+ .bounce-enter-active {
+   animation: bounce-in 0.8s;
+ }
+ .bounce-leave-active {
+   animation: bounce-out 0.5s;
+ }
+ 
+ @keyframes bounce-in {
+   0% {
+     transform: scale(0);
+   }
+   50% {
+     transform: scale(1.5);
+   }
+   100% {
+     transform: scale(1);
+   }
+ }
+ @keyframes bounce-out {
+   0% {
+     transform: scale(1);
+   }
+   50% {
+     transform: scale(1.5);
+   }
+   100% {
+     transform: scale(0);
+   }
+ }
+ 
