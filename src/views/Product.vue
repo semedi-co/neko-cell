@@ -5,6 +5,8 @@ import debounce from "../utils/debounce";
 
 import { useRouter } from "vue-router";
 import ProductCard from "../components/ProductCard.vue";
+import { dataLogin } from "../store";
+import Swal from "sweetalert2";
 
 const product = reactive({
   data: [],
@@ -92,6 +94,14 @@ watchEffect(() => {
 
 onMounted(() => {
   getKategori();
+  if (dataLogin.user === null) {
+    route.replace("/login");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Anda harus login terlebih dahulu!",
+    });
+  }
 });
 </script>
 

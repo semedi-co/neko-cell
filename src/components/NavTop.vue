@@ -1,5 +1,20 @@
 <script setup>
-import { RouterLink } from "vue-router";
+import Swal from "sweetalert2";
+import { RouterLink, useRouter } from "vue-router";
+import { dataLogin } from "../store";
+const router = useRouter();
+
+const logout = () => {
+  localStorage.removeItem("user");
+  dataLogin.user = null;
+  Swal.fire({
+    icon: "success",
+    title: "Logout Berhasil",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+  router.push("/login");
+};
 </script>
 <template>
   <nav class="navbar sticky-top navbar-expand-lg bg-danger navbar-dark py-4">
@@ -30,9 +45,13 @@ import { RouterLink } from "vue-router";
             <RouterLink to="/about" class="nav-link">About</RouterLink>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <button class="btn btn-warning" type="submit">Login</button>
-        </form>
+        <div v-if="dataLogin.user">
+          <h3>{{ dataLogin.user.username }}</h3>
+          <button @click="logout" class="btn btn-warning">Logout</button>
+        </div>
+        <RouterLink v-else class="btn btn-warning" to="/login">
+          Login
+        </RouterLink>
       </div>
     </div>
   </nav>
